@@ -18,8 +18,8 @@ for i in $FILE_PATTERN.+([0-9]|); do
    if [[ $i =~ $regex ]] ; then
        core="${BASH_REMATCH[1]}"
      else
-       echo "Unknown file $i"   # concatenate strings
-       exit
+       echo "Unknown file $i"
+       exit 2
    fi
 
     tail -n+12 $i |
