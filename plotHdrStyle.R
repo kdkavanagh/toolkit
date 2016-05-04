@@ -4,6 +4,13 @@
 # 3. Column to split the distributions by (Optional)
 # 4. Png filename (Optional)
 
+for (package in c('data.table', 'ggplot2', 'scales', 'grid', 'RColorBrewer')) {
+  if (!require(package, character.only=T, quietly=T)) {
+    install.packages(package)
+    library(package, character.only=T)
+  }
+}
+
 require(data.table)
 require(ggplot2)
 require(scales)
