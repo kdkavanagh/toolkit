@@ -103,5 +103,5 @@ g=g+
   ggtitle(graphTitle)
 
 if(!is.na(pngFile)) {
-  ggsave(g, file=pngFile, height=4, width=7)
+  ggsave(g, file=pngFile, height=5, width=8)
 }
