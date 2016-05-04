@@ -41,6 +41,6 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-Rscript $DIR/plotHdrStyle.R tmp.csv Interrupted_ns Core sysjitter_results.png
+Rscript $DIR/plotHdrStyle.R tmp.csv Interrupted_ns sysjitter_results.png Sysjitter Core
 
 rm tmp.csv

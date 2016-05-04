@@ -1,8 +1,9 @@
 #EXPECTS:
 # 1. CSV file path
 # 2. Column to generate the distribution for
-# 3. Column to split the distributions by (Optional)
-# 4. Png filename (Optional)
+# 3. Title for the graph
+# 4. Png filename 
+# 5. Column to split the distributions by (Optional)
 
 for (package in c('data.table', 'ggplot2', 'scales', 'grid', 'RColorBrewer')) {
   if (!require(package, character.only=T, quietly=T)) {
@@ -59,8 +60,10 @@ gtheme<- function() {
 ca = commandArgs(trailingOnly=TRUE)
 fileName = ca[1]
 column = ca[2]
-splitField=ca[3]
-pngFile=ca[4]
+splitField=ca[5]
+graphTitle=ca[4]
+pngFile=ca[3]
+
 
 if(is.na(splitField)) {
   splitField=NULL
@@ -95,7 +98,9 @@ g=g+
                 label=c( "90th", "99th", "99.9th", "99.99th", "99.999th"))+
   scale_y_continuous(labels=comma, breaks=number_ticks(10))+
   xlab("Percentile")+
-  ylab(column)+gtheme()
+  ylab(column)+
+  gtheme()+
+  ggtitle(graphTitle)
 
 if(!is.na(pngFile)) {
   ggsave(g, file=pngFile, height=4, width=7)
