@@ -1,0 +1,3 @@
+[submodule "perf-workshop"]
+	path = perf-workshop
+	url = https://github.com/epickrram/perf-workshop.git
